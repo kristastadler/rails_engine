@@ -1,8 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/customer.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/merchant.rb": {
         "lines": [
+          1,
           1,
           1,
           null
@@ -10,25 +11,6 @@
       },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/application_record.rb": {
         "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice_item.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
           1,
           1,
           null
@@ -44,17 +26,17 @@
           null
         ]
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/merchant.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/api/v1/items_controller.rb": {
         "lines": [
           1,
           1,
           1,
+          null,
           null
         ]
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/transaction.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/application_controller.rb": {
         "lines": [
-          1,
           1,
           null
         ]
@@ -69,15 +51,48 @@
         "branches": {
         }
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/jobs/application_job.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/application_controller.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/customer.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice_item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/transaction.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/jobs/application_job.rb": {
         "lines": [
           0,
           0
@@ -106,6 +121,6 @@
         }
       }
     },
-    "timestamp": 1589661102
+    "timestamp": 1589661711
   }
 }
