@@ -34,6 +34,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'orderly'
   gem 'database_cleaner-active_record'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
 end
 
 group :development do
