@@ -13,4 +13,10 @@ class Api::V1::MerchantItemsController < ApplicationController
           }
     render json: data
   end
+
+  def index
+    merchant = Merchant.find(params[:merchant_id])
+    data = {"data" => merchant.items}
+    render json: data
+  end
 end

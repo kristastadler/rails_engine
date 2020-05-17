@@ -19,4 +19,15 @@ describe "Merchants API" do
     merchant_1 = create(:merchant)
     merchant_2 = create(:merchant)
 
-    
+    create_list(:item, 4, merchant: merchant_1)
+    create_list(:item, 3, merchant: merchant_2)
+
+    get "/api/v1/merchants/#{merchant_1.id}/items"
+
+    expect(response).to be_successful
+
+    items = JSON.parse(response.body)
+
+    expect(items["data"].count).to eq(4)
+  end
+end
