@@ -10,6 +10,19 @@ describe "Items API" do
 
     items = JSON.parse(response.body)
 
-    expect(items.count).to eq(4)
+    expect(items["data"].count).to eq(4)
+  end
+
+  it "can get one item by its id" do
+    create(:item, name: "Silly Name", merchant: create(:merchant))
+    id = Item.last.id
+    name = Item.last.name
+
+    get "/api/v1/items/#{id}"
+
+    item = JSON.parse(response.body)
+
+    expect(response).to be_successful
+    expect(item["data"]["id"]).to eq(id.to_s)
   end
 end
