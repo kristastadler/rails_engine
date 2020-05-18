@@ -1,5 +1,5 @@
 class Api::V1::Merchants::SearchController < ApplicationController
   def show
-    require "pry"; binding.pry
+    items = Item.find_all(params)
   end
 end
