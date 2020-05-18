@@ -68,27 +68,12 @@
         "lines": [
           1,
           1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           1,
           null,
           null,
           1,
-          1,
-          1,
+          null,
           null,
           null,
           null,
@@ -101,12 +86,6 @@
           1,
           null,
           null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
           1,
           null,
           null,
@@ -115,13 +94,6 @@
           null,
           null,
           null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
           null,
           null,
           null,
@@ -135,6 +107,22 @@
           null,
           null,
           1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
           null,
           1,
           1,
@@ -145,6 +133,18 @@
       },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/application_controller.rb": {
         "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/serializers/item_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           1,
           null
         ]
@@ -223,6 +223,6 @@
         }
       }
     },
-    "timestamp": 1589773886
+    "timestamp": 1589830856
   }
 }
