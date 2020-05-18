@@ -7,7 +7,7 @@ describe "Merchants API" do
     merchant_3 = create(:merchant, name: "Smith Brothers")
     merchant_4 = create(:merchant, name: "Pro Golf")
 
-    get '/api/v1/merchants/find_all?name=smith'
+    get '/api/v1/merchants/find?name=smith'
 
     expect(response).to be_successful
 
