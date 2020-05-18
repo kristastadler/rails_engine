@@ -46,14 +46,13 @@ describe "Items API" do
   it "can update an existing item" do
     id = create(:item, merchant: create(:merchant)).id
     previous_name = Item.last.name
-    item_params = { name: "Baseball Bat" }
 
-    put "/api/v1/items/#{id}", params: {item: item_params}
+    put "/api/v1/items/#{id}", params: {name: "Shinier Item"}
     item = Item.find_by(id: id)
 
     expect(response).to be_successful
     expect(item.name).to_not eq(previous_name)
-    expect(item.name).to eq("Baseball Bat")
+    expect(item.name).to eq("Shinier Item")
   end
 
   it "can destroy an item" do
