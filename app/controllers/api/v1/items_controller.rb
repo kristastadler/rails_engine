@@ -34,7 +34,7 @@ class Api::V1::ItemsController < ApplicationController
     #                   description: params[:description],
     #                   unit_price: unit_price,
     #                   merchant_id: merchant_id)
-    item = Item.create!(item_params)
+    item = Item.create!(create_params)
     render json: ItemSerializer.new(item)
   end
 
@@ -51,6 +51,10 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   private
+
+  def create_params
+    params.permit(:name, :description, :unit_price, :merchant_id)
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :unit_price, :merchant_id)

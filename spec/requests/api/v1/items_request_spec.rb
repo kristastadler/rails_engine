@@ -28,18 +28,17 @@ describe "Items API" do
 
   it "can create a new item" do
     merchant_id = create(:merchant).id
-    item_params = { name: "Shiny Itemy Item",
+
+    post "/api/v1/items", params: { name: "Shiny Itemy Item",
                     description: "It does a lot of things real good",
                     unit_price: 5011.96,
                     merchant_id: merchant_id }
-
-    post "/api/v1/items", params: {item: item_params}
     item = Item.last
     parse_item = JSON.parse(response.body)
     expect(response).to be_successful
-    expect(item.name).to eq(item_params[:name])
-    expect(item.description).to eq(item_params[:description])
-    expect(item.unit_price).to eq(item_params[:unit_price])
+    expect(item.name).to eq("Shiny Itemy Item")
+    expect(item.description).to eq("It does a lot of things real good")
+    expect(item.unit_price).to eq( 5011.96)
     expect(item.merchant_id).to eq(merchant_id)
     expect(parse_item["data"]["attributes"]["name"]).to eq(item.name)
   end
