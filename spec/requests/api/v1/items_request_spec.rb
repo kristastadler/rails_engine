@@ -23,28 +23,25 @@ describe "Items API" do
     item = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(item["data"]["id"]).to eq(id.to_s)
+    expect(item["data"]["attributes"]["name"]).to eq(name)
   end
 
   it "can create a new item" do
     merchant_id = create(:merchant).id
-    name = "Shiny Itemy Item"
-    description = "It does a lot of things real good"
-    unit_price = 5011.96
-    merchant_id = merchant_id
+    item_params = { name: "Shiny Itemy Item",
+                    description: "It does a lot of things real good",
+                    unit_price: 5011.96,
+                    merchant_id: merchant_id }
 
-    post "/api/v1/items", :params => {name: name,
-                                      description: description,
-                                      unit_price: unit_price,
-                                      merchant_id: merchant_id}
+    post "/api/v1/items", params: {item: item_params}
     item = Item.last
     parse_item = JSON.parse(response.body)
     expect(response).to be_successful
-    expect(item.name).to eq(name)
-    expect(item.description).to eq(description)
-    expect(item.unit_price).to eq(unit_price)
+    expect(item.name).to eq(item_params[:name])
+    expect(item.description).to eq(item_params[:description])
+    expect(item.unit_price).to eq(item_params[:unit_price])
     expect(item.merchant_id).to eq(merchant_id)
-  #  expect(parse_item["attributes"]["name"]).to eq(item.name)
+    expect(parse_item["data"]["attributes"]["name"]).to eq(item.name)
   end
 
   it "can update an existing item" do
