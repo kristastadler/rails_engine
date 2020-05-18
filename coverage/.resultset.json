@@ -37,7 +37,6 @@
           1,
           1,
           1,
-          1,
           null,
           null,
           null,
@@ -45,13 +44,14 @@
           null,
           null,
           null,
-          null,
-          1,
           null,
           null,
           1,
+          null,
+          null,
           1,
           1,
+          null,
           1,
           null,
           null
@@ -63,21 +63,50 @@
           null
         ]
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/mailers/application_mailer.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/serializers/merchant_serializer.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
       },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice.rb": {
         "lines": [
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/serializers/item_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice_item.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/mailers/application_mailer.rb": {
+        "lines": [
           0,
           0,
           0,
@@ -95,32 +124,8 @@
         "branches": {
         }
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice_item.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/transaction.rb": {
         "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/serializers/item_serializer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           0
@@ -207,6 +212,6 @@
         }
       }
     },
-    "timestamp": 1589832518
+    "timestamp": 1589832865
   }
 }
