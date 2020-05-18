@@ -6,6 +6,10 @@
           1,
           1,
           1,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -16,43 +20,25 @@
           null
         ]
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/item.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/api/v1/merchants/search_controller.rb": {
         "lines": [
           1,
           1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/api/v1/merchant_items_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          2,
           1,
           null,
           null,
           1,
-          1,
           null,
           1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          null,
+          1,
+          2,
           null,
           null
         ]
@@ -74,31 +60,21 @@
           null
         ]
       },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/item.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice.rb": {
         "lines": [
           1,
           1,
           1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/serializers/item_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice_item.rb": {
-        "lines": [
           1,
           1,
           1,
@@ -124,6 +100,16 @@
         "branches": {
         }
       },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice_item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/transaction.rb": {
         "lines": [
           0,
@@ -133,19 +119,22 @@
         "branches": {
         }
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/jobs/application_job.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/serializers/item_serializer.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/api/v1/merchants/search_controller.rb": {
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/jobs/application_job.rb": {
         "lines": [
-          0,
-          0,
-          0,
           0,
           0
         ],
@@ -191,6 +180,24 @@
         "branches": {
         }
       },
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/api/v1/merchant_items_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
@@ -212,6 +219,6 @@
         }
       }
     },
-    "timestamp": 1589832865
+    "timestamp": 1589841236
   }
 }
