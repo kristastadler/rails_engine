@@ -15,6 +15,7 @@
           null
         ]
       },
+
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/models/invoice_item.rb": {
         "lines": [
           1,
@@ -69,6 +70,10 @@
         ]
       },
       "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/api/v1/items_controller.rb": {
+        "lines": [
+          1,
+          1,
+      "/Users/kristastadler/turing/3module/projects/rails_engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
           1,
@@ -231,5 +236,6 @@
       }
     },
     "timestamp": 1589920433
+
   }
 }
