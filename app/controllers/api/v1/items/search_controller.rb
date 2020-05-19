@@ -8,6 +8,14 @@ class Api::V1::Items::SearchController < ApplicationController
     render json: ItemSerializer.new(item)
   end
 
+  def index
+    @items = Item.where(nil)
+    filtering_params(params).each do |key, value|
+      @items = @items.public_send("filter_by_#{key}", value) if value.present?
+    end
+    render json: ItemSerializer.new(@items)
+  end
+
   private
 
   def filtering_params(params)
