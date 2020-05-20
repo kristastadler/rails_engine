@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe "Merchants API" do
   it "returns a variable number of merchants ranked by total revenue" do
-    merchant_1 = create(:merchant)
-    merchant_2 = create(:merchant)
-    merchant_3 = create(:merchant)
-    merchant_4 = create(:merchant)
+    merchant_1 = create(:merchant, name: "Joe's Baseball Shop")
+    merchant_2 = create(:merchant, name: "Pete's Pretty Things")
+    merchant_3 = create(:merchant, name: "James' Toy Shop")
+    merchant_4 = create(:merchant, name: "Ben's Boat Shop")
 
     customer_1 = Customer.create(first_name: "Joe", last_name: "Smith")
     id_1 = create(:item, merchant: merchant_1).id
@@ -38,16 +38,19 @@ describe "Merchants API" do
     # merchant_3 revenue == $28
     # merchant_4 revenue == 200
     # rank: 3, 4, 1, 2
+    # 2 should get cut off the list
 
     get '/api/v1/merchants/most_revenue?quantity=3'
 
     expect(response).to be_successful
 
     merchants = JSON.parse(response.body)
+    first_merchant = merchants["data"].first
+    last_merchant = merchants["data"].last
 
     expect(merchants["data"].count).to eq(3)
-    require "pry"; binding.pry
-
+    expect(first_merchant["attributes"]["name"]).to eq("Pete's Pretty Things")
+    expect(last_merchant["attributes"]["name"]).to eq("Joe's Baseball Shop")
   end
 
 end

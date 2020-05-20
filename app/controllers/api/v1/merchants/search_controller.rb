@@ -18,6 +18,7 @@ class Api::V1::Merchants::SearchController < ApplicationController
 
   def most_revenue
     @merchants = Merchant.find_most_revenue(params[:quantity])
+    render json: MerchantSerializer.new(@merchants)
   end
 
   private
