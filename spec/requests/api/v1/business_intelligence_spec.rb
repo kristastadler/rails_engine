@@ -20,6 +20,7 @@ describe "Merchants API" do
     invoice_5 = Invoice.create(merchant_id: @merchant_2.id, customer_id: customer_1.id)
     invoice_6 = Invoice.create(merchant_id: @merchant_3.id, customer_id: customer_1.id)
     invoice_7 = Invoice.create(merchant_id: @merchant_4.id, customer_id: customer_1.id)
+    invoice_8 = Invoice.create(merchant_id: @merchant_4.id, customer_id: customer_1.id)
 
     invoice_item_1 = invoice_1.invoice_items.create(item_id: id_1, quantity: 4, unit_price: 5.0) # $20 value
     invoice_item_2 = invoice_1.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 6.0) # $12
@@ -33,6 +34,7 @@ describe "Merchants API" do
     invoice_item_1 = invoice_6.invoice_items.create(item_id: id_3, quantity: 7, unit_price: 4.0) #28
     invoice_item_1 = invoice_7.invoice_items.create(item_id: id_4, quantity: 8, unit_price: 10.0) #80
     invoice_item_2 = invoice_7.invoice_items.create(item_id: id_4, quantity: 2, unit_price: 60.0) #120
+    invoice_item_3 = invoice_8.invoice_items.create(item_id: id_4, quantity: 2, unit_price: 60.0)
 
     transaction_1 = invoice_1.transactions.create(result: "success")
     transaction_2 = invoice_2.transactions.create(result: "success")
@@ -41,6 +43,7 @@ describe "Merchants API" do
     transaction_5 = invoice_5.transactions.create(result: "success")
     transaction_6 = invoice_6.transactions.create(result: "success")
     transaction_7 = invoice_7.transactions.create(result: "success")
+    
 
   end
   it "returns a variable number of merchants ranked by total revenue" do
