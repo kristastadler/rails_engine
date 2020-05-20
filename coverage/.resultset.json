@@ -31,6 +31,8 @@
           1,
           1,
           1,
+          null,
+          null,
           null
         ]
       },
@@ -46,6 +48,12 @@
           1,
           1,
           3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null
         ]
@@ -294,46 +302,8 @@
           null,
           null
         ]
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/mailers/application_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/kristastadler/turing/3module/projects/rails_engine/app/channels/application_cable/channel.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1590010489
+    "timestamp": 1590013495
   }
 }

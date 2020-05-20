@@ -22,18 +22,18 @@ describe "Merchants API" do
     invoice_7 = Invoice.create(merchant_id: @merchant_4.id, customer_id: customer_1.id)
     invoice_8 = Invoice.create(merchant_id: @merchant_4.id, customer_id: customer_1.id)
 
-    invoice_item_1 = invoice_1.invoice_items.create(item_id: id_1, quantity: 4, unit_price: 5.0) # $20 value
-    invoice_item_2 = invoice_1.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 6.0) # $12
-    invoice_item_3 = invoice_1.invoice_items.create(item_id: id_1, quantity: 1, unit_price: 2.5) # 2.5
-    invoice_item_1 = invoice_2.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 50.0) # $100
-    invoice_item_1 = invoice_2.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 10.0) # $20
-    invoice_item_1 = invoice_3.invoice_items.create(item_id: id_1, quantity: 1, unit_price: 17.0) #17
-    invoice_item_1 = invoice_4.invoice_items.create(item_id: id_2, quantity: 2, unit_price: 15.0) #30
-    invoice_item_1 = invoice_4.invoice_items.create(item_id: id_2, quantity: 1, unit_price: 100.0) #100
-    invoice_item_1 = invoice_5.invoice_items.create(item_id: id_2, quantity: 5, unit_price: 20.0) #100
-    invoice_item_1 = invoice_6.invoice_items.create(item_id: id_3, quantity: 7, unit_price: 4.0) #28
-    invoice_item_1 = invoice_7.invoice_items.create(item_id: id_4, quantity: 8, unit_price: 10.0) #80
-    invoice_item_2 = invoice_7.invoice_items.create(item_id: id_4, quantity: 2, unit_price: 60.0) #120
+    invoice_item_1 = invoice_1.invoice_items.create(item_id: id_1, quantity: 4, unit_price: 5.0)
+    invoice_item_2 = invoice_1.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 6.0)
+    invoice_item_3 = invoice_1.invoice_items.create(item_id: id_1, quantity: 1, unit_price: 2.5)
+    invoice_item_1 = invoice_2.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 50.0)
+    invoice_item_1 = invoice_2.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 10.0)
+    invoice_item_1 = invoice_3.invoice_items.create(item_id: id_1, quantity: 1, unit_price: 17.0)
+    invoice_item_1 = invoice_4.invoice_items.create(item_id: id_2, quantity: 2, unit_price: 15.0)
+    invoice_item_1 = invoice_4.invoice_items.create(item_id: id_2, quantity: 1, unit_price: 100.0)
+    invoice_item_1 = invoice_5.invoice_items.create(item_id: id_2, quantity: 5, unit_price: 20.0)
+    invoice_item_1 = invoice_6.invoice_items.create(item_id: id_3, quantity: 7, unit_price: 4.0)
+    invoice_item_1 = invoice_7.invoice_items.create(item_id: id_4, quantity: 8, unit_price: 10.0)
+    invoice_item_2 = invoice_7.invoice_items.create(item_id: id_4, quantity: 2, unit_price: 60.0)
     invoice_item_3 = invoice_8.invoice_items.create(item_id: id_4, quantity: 2, unit_price: 60.0)
 
     transaction_1 = invoice_1.transactions.create(result: "success")
@@ -82,4 +82,5 @@ describe "Merchants API" do
     merchant = JSON.parse(response.body)
     expect(merchant["data"]["attributes"]["revenue"]).to eq(28.0)
   end
+
 end
