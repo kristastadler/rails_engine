@@ -27,11 +27,11 @@ class Merchant < ApplicationRecord
   end
 
   def self.find_total_revenue(id)
-  merchant = Merchant.joins(:transactions, :invoice_items)
-            .where(transactions: { result: :success })
-            .where(invoices: { merchant_id: id })
-            .group(:id)
-            .select("merchants.*, sum(invoice_items.unit_price * invoice_items.quantity) as revenue")
-  merchant.reduce.revenue.to_f
+    merchant = Merchant.joins(:transactions, :invoice_items)
+              .where(transactions: { result: :success })
+              .where(invoices: { merchant_id: id })
+              .group(:id)
+              .select("merchants.*, sum(invoice_items.unit_price * invoice_items.quantity) as revenue")
+    merchant.reduce.revenue.to_f
   end
 end
