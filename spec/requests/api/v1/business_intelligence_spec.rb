@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Merchants API" do
-  it "returns a variable number of merchants ranked by total revenue" do
+  before(:each) do
     merchant_1 = create(:merchant, name: "Joe's Baseball Shop")
     merchant_2 = create(:merchant, name: "Pete's Pretty Things")
     merchant_3 = create(:merchant, name: "James' Toy Shop")
@@ -31,8 +31,11 @@ describe "Merchants API" do
     invoice_item_1 = invoice_4.invoice_items.create(item_id: id_2, quantity: 1, unit_price: 100.0) #100
     invoice_item_1 = invoice_5.invoice_items.create(item_id: id_2, quantity: 5, unit_price: 20.0) #100
     invoice_item_1 = invoice_6.invoice_items.create(item_id: id_3, quantity: 7, unit_price: 4.0) #28
-    invoice_item_1 = invoice_7.invoice_items.create(item_id: id_4, quantity: 8, unit_price: 25.0) #200
+    invoice_item_1 = invoice_7.invoice_items.create(item_id: id_4, quantity: 8, unit_price: 10.0) #80
+    invoice_item_2 = invoice_7.invoice_items.create(item_id: id_4, quantity: 2, unit_price: 60.0) #120
 
+  end
+  it "returns a variable number of merchants ranked by total revenue" do
     # merchant_1 revenue == 201.5
     # merchant_2 revenue == $230
     # merchant_3 revenue == $28
@@ -53,4 +56,22 @@ describe "Merchants API" do
     expect(last_merchant["attributes"]["name"]).to eq("Joe's Baseball Shop")
   end
 
+  it "returns a variable number of merchants ranked by total number of items sold" do
+    #merchant_1 = 12
+    #merchant_2 = 8
+    #merchant_3 = 7
+    #merchant_4 = 10
+
+    get '/api/v1/merchants/most_items?quantity=2'
+
+    expect(response).to be_successful
+
+    merchants = JSON.parse(response.body)
+    first_merchant = merchants["data"].first
+    last_merchant = merchants["data"].last
+
+    expect(merchants["data"].count).to eq(2)
+    expect(first_merchant["attributes"]["name"]).to eq("Joe's Baseball Shop")
+    expect(last_merchant["attributes"]["name"]).to eq("Ben's Boat Shop")
+  end
 end

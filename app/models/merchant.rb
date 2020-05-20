@@ -11,4 +11,10 @@ class Merchant < ApplicationRecord
                          .order('SUM (invoice_items.quantity * invoice_items.unit_price) DESC')
                          .limit(quantity)
   end
+
+  def self.find_most_items(quantity)
+    joins(:invoice_items).group(:id)
+                         .order('SUM (invoice_items.quantity) DESC')
+                         .limit(quantity)
+  end 
 end
