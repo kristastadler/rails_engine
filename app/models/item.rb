@@ -9,10 +9,4 @@ class Item < ApplicationRecord
   scope :filter_by_unit_price, -> (unit_price) { where unit_price: unit_price }
   scope :filter_by_merchant_id, -> (merchant_id) { where merchant_id: merchant_id }
 
-  # def self.find_revenue(dates)
-  #   start_date = dates[:start].to_date
-  #   end_date = dates[:start].to_date
-  #   require "pry"; binding.pry
-  # end
-
 end

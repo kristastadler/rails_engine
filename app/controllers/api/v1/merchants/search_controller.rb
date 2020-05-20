@@ -1,18 +1,12 @@
 class Api::V1::Merchants::SearchController < ApplicationController
   def show
-    @merchants = Merchant.where(nil)
-    filtering_params(params).each do |key, value|
-      @merchants = @merchants.public_send("filter_by_#{key}", value.downcase) if value.present?
-    end
+    filter
     merchant = @merchants.first
     render json: MerchantSerializer.new(merchant)
   end
 
   def index
-    @merchants = Merchant.where(nil)
-    filtering_params(params).each do |key, value|
-      @merchants = @merchants.public_send("filter_by_#{key}", value.downcase) if value.present?
-    end
+    filter
     render json: MerchantSerializer.new(@merchants)
   end
 
@@ -28,8 +22,6 @@ class Api::V1::Merchants::SearchController < ApplicationController
 
   def total_revenue
     revenue = Merchant.find_total_revenue(params[:id])
-    # @merchant = Merchant.find(params[:id])
-    # revenue = @merchant.find_total_revenue
     data = {
             "data" => {
               "id" => "null",
@@ -46,5 +38,12 @@ class Api::V1::Merchants::SearchController < ApplicationController
 
   def filtering_params(params)
     params.slice(:name, :created_at, :updated_at)
+  end
+
+  def filter
+    @merchants = Merchant.where(nil)
+    filtering_params(params).each do |key, value|
+      @merchants = @merchants.public_send("filter_by_#{key}", value.downcase) if value.present?
+    end
   end
 end
