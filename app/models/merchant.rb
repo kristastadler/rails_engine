@@ -16,5 +16,13 @@ class Merchant < ApplicationRecord
     joins(:invoice_items).group(:id)
                          .order('SUM (invoice_items.quantity) DESC')
                          .limit(quantity)
-  end 
+  end
+
+  def find_total_revenue
+    total_revenue = 0
+    invoice_items.each do |item|
+      total_revenue += item.quantity * item.unit_price
+    end
+    total_revenue.to_f
+  end
 end

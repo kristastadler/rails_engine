@@ -2,24 +2,24 @@ require 'rails_helper'
 
 describe "Merchants API" do
   before(:each) do
-    merchant_1 = create(:merchant, name: "Joe's Baseball Shop")
-    merchant_2 = create(:merchant, name: "Pete's Pretty Things")
-    merchant_3 = create(:merchant, name: "James' Toy Shop")
-    merchant_4 = create(:merchant, name: "Ben's Boat Shop")
+    @merchant_1 = create(:merchant, name: "Joe's Baseball Shop")
+    @merchant_2 = create(:merchant, name: "Pete's Pretty Things")
+    @merchant_3 = create(:merchant, name: "James' Toy Shop")
+    @merchant_4 = create(:merchant, name: "Ben's Boat Shop")
 
     customer_1 = Customer.create(first_name: "Joe", last_name: "Smith")
-    id_1 = create(:item, merchant: merchant_1).id
-    id_2 = create(:item, merchant: merchant_2).id
-    id_3 = create(:item, merchant: merchant_3).id
-    id_4 = create(:item, merchant: merchant_4).id
+    id_1 = create(:item, merchant: @merchant_1).id
+    id_2 = create(:item, merchant: @merchant_2).id
+    id_3 = create(:item, merchant: @merchant_3).id
+    id_4 = create(:item, merchant: @merchant_4).id
 
-    invoice_1 = Invoice.create(merchant_id: merchant_1.id, customer_id: customer_1.id)
-    invoice_2 = Invoice.create(merchant_id: merchant_1.id, customer_id: customer_1.id)
-    invoice_3 = Invoice.create(merchant_id: merchant_1.id, customer_id: customer_1.id)
-    invoice_4 = Invoice.create(merchant_id: merchant_2.id, customer_id: customer_1.id)
-    invoice_5 = Invoice.create(merchant_id: merchant_2.id, customer_id: customer_1.id)
-    invoice_6 = Invoice.create(merchant_id: merchant_3.id, customer_id: customer_1.id)
-    invoice_7 = Invoice.create(merchant_id: merchant_4.id, customer_id: customer_1.id)
+    invoice_1 = Invoice.create(merchant_id: @merchant_1.id, customer_id: customer_1.id)
+    invoice_2 = Invoice.create(merchant_id: @merchant_1.id, customer_id: customer_1.id)
+    invoice_3 = Invoice.create(merchant_id: @merchant_1.id, customer_id: customer_1.id)
+    invoice_4 = Invoice.create(merchant_id: @merchant_2.id, customer_id: customer_1.id)
+    invoice_5 = Invoice.create(merchant_id: @merchant_2.id, customer_id: customer_1.id)
+    invoice_6 = Invoice.create(merchant_id: @merchant_3.id, customer_id: customer_1.id)
+    invoice_7 = Invoice.create(merchant_id: @merchant_4.id, customer_id: customer_1.id)
 
     invoice_item_1 = invoice_1.invoice_items.create(item_id: id_1, quantity: 4, unit_price: 5.0) # $20 value
     invoice_item_2 = invoice_1.invoice_items.create(item_id: id_1, quantity: 2, unit_price: 6.0) # $12
@@ -36,7 +36,7 @@ describe "Merchants API" do
 
   end
   it "returns a variable number of merchants ranked by total revenue" do
-    # merchant_1 revenue == 201.5
+    # merchant_1 revenue == 171.5
     # merchant_2 revenue == $230
     # merchant_3 revenue == $28
     # merchant_4 revenue == 200
@@ -73,5 +73,17 @@ describe "Merchants API" do
     expect(merchants["data"].count).to eq(2)
     expect(first_merchant["attributes"]["name"]).to eq("Joe's Baseball Shop")
     expect(last_merchant["attributes"]["name"]).to eq("Ben's Boat Shop")
+  end
+
+  it "returns total revenue for a single merchant" do
+    get "/api/v1/merchants/#{@merchant_2.id}/revenue"
+    expect(response).to be_successful
+    merchant = JSON.parse(response.body)
+    expect(merchant["data"]["attributes"]["revenue"]).to eq(230)
+
+    get "/api/v1/merchants/#{@merchant_3.id}/revenue"
+    expect(response).to be_successful
+    merchant = JSON.parse(response.body)
+    expect(merchant["data"]["attributes"]["revenue"]).to eq(28.0)
   end
 end
