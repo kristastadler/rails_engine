@@ -66,4 +66,18 @@ describe "Merchants API" do
     merchants = JSON.parse(response.body)
     expect(merchants["data"].count).to eq(2)
   end
+
+    it "finds all merchant with matching name attributes regardless of upper case letters" do
+      merchant_1 = create(:merchant, name: "The Goldsmith")
+      merchant_2 = create(:merchant, name: "Piano Man")
+      merchant_3 = create(:merchant, name: "SMITH Brothers")
+      merchant_4 = create(:merchant, name: "Pro Golf")
+
+      get '/api/v1/merchants/find_all?name=sMitH'
+
+      expect(response).to be_successful
+
+      merchants = JSON.parse(response.body)
+      expect(merchants["data"].count).to eq(2)
+  end
 end

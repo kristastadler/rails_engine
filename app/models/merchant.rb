@@ -24,9 +24,6 @@ class Merchant < ApplicationRecord
             .select("merchants.*, sum(invoice_items.quantity) as count")
             .order('count DESC')
             .limit(quantity)
-    # joins(:invoice_items).group(:id)
-    #                      .order('SUM (invoice_items.quantity) DESC')
-    #                      .limit(quantity)
   end
 
   def self.find_total_revenue(id)
@@ -36,10 +33,5 @@ class Merchant < ApplicationRecord
             .group(:id)
             .select("merchants.*, sum(invoice_items.unit_price * invoice_items.quantity) as revenue")
   merchant.reduce.revenue.to_f
-    # total_revenue = 0
-    # invoice_items.each do |item|
-    #   total_revenue += item.quantity * item.unit_price
-    # end
-    # total_revenue.to_f
   end
 end
