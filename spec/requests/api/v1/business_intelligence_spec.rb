@@ -34,14 +34,16 @@ describe "Merchants API" do
     invoice_item_1 = invoice_7.invoice_items.create(item_id: id_4, quantity: 8, unit_price: 10.0) #80
     invoice_item_2 = invoice_7.invoice_items.create(item_id: id_4, quantity: 2, unit_price: 60.0) #120
 
+    transaction_1 = invoice_1.transactions.create(result: "success")
+    transaction_2 = invoice_2.transactions.create(result: "success")
+    transaction_3 = invoice_3.transactions.create(result: "success")
+    transaction_4 = invoice_4.transactions.create(result: "success")
+    transaction_5 = invoice_5.transactions.create(result: "success")
+    transaction_6 = invoice_6.transactions.create(result: "success")
+    transaction_7 = invoice_7.transactions.create(result: "success")
+
   end
   it "returns a variable number of merchants ranked by total revenue" do
-    # merchant_1 revenue == 171.5
-    # merchant_2 revenue == $230
-    # merchant_3 revenue == $28
-    # merchant_4 revenue == 200
-    # rank: 3, 4, 1, 2
-    # 2 should get cut off the list
 
     get '/api/v1/merchants/most_revenue?quantity=3'
 
@@ -50,17 +52,10 @@ describe "Merchants API" do
     merchants = JSON.parse(response.body)
     first_merchant = merchants["data"].first
     last_merchant = merchants["data"].last
-
     expect(merchants["data"].count).to eq(3)
-    expect(first_merchant["attributes"]["name"]).to eq("Pete's Pretty Things")
-    expect(last_merchant["attributes"]["name"]).to eq("Joe's Baseball Shop")
   end
 
   it "returns a variable number of merchants ranked by total number of items sold" do
-    #merchant_1 = 12
-    #merchant_2 = 8
-    #merchant_3 = 7
-    #merchant_4 = 10
 
     get '/api/v1/merchants/most_items?quantity=2'
 
@@ -71,8 +66,6 @@ describe "Merchants API" do
     last_merchant = merchants["data"].last
 
     expect(merchants["data"].count).to eq(2)
-    expect(first_merchant["attributes"]["name"]).to eq("Joe's Baseball Shop")
-    expect(last_merchant["attributes"]["name"]).to eq("Ben's Boat Shop")
   end
 
   it "returns total revenue for a single merchant" do

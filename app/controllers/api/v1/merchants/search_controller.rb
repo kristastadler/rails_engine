@@ -27,8 +27,9 @@ class Api::V1::Merchants::SearchController < ApplicationController
   end
 
   def total_revenue
-    @merchant = Merchant.find(params[:id])
-    revenue = @merchant.find_total_revenue
+    revenue = Merchant.find_total_revenue(params[:id])
+    # @merchant = Merchant.find(params[:id])
+    # revenue = @merchant.find_total_revenue
     data = {
             "data" => {
               "id" => "null",
