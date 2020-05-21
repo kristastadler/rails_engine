@@ -1,24 +1,47 @@
-# README
+# Rails Engine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails Engine is an API that leverages the data from the Sales Engine to power a front end application called Rails Driver.
 
-Things you may want to cover:
+Rails Driver displays merchants and items from Sales Engine, as well as business analytics related to merchant revenue.
 
-* Ruby version
+## How to Clone Project to Local Machine
+Use the instructions below in combination with your terminal in order to learn more about this project:
 
-* System dependencies
+  1. Clone this repository:
+    ```https://github.com/kristastadler/rails_engine```
 
-* Configuration
+  2. Install the necessary gems:
+    ```bundle install``` &
+    ```bundle update```
 
-* Database creation
+  3. Initialize the database:
+    ```rails db:{create,migrate,seed}```
 
-* Database initialization
+  4. Clone and set up Rails Driver:
+    ```https://github.com/turingschool-examples/rails_driver```  
 
-* How to run the test suite
+  5. Make a connection to Rails Engine with the Rails server:
+    ```rails s```
 
-* Services (job queues, cache servers, search engines, etc.)
+  6. Make a connection to Rails Driver with the Rails server:  
+    ```rails s -p 3001```
 
-* Deployment instructions
+  7. Visit your browser, and enter the following into the search bar:
+  ```localhost:3001```
 
-* ...
+  8. Enjoy!
+
+## Skills Gained from this Project
+
+### APIs & ActiveRecord
+* Expose an API.
+* Use serializers to format json responses
+* Test API exposure
+* Compose advanced ActiveRecord queries to analyze information stored in SQL databases.
+
+
+### Testing and Debugging
+* Write feature tests utilizing:
+  - RSpec and Capybara
+  - CSS selectors to target specific areas of a page
+  - Utilize the Rails console as a tool to get more information about the current state of a development database
