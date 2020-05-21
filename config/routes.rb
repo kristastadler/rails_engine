@@ -5,9 +5,9 @@ Rails.application.routes.draw do
       namespace :merchants do
         get "find_all", to: "search#index"
         get "find", to: "search#show"
-        get "most_items", to: "search#most_items"
-        get "most_revenue", to: "search#most_revenue"
-        get ":id/revenue", to: "search#total_revenue"
+        get "most_items", to: "items#index"
+        get "most_revenue", to: "revenue#index"
+        get ":id/revenue", to: "revenue#show"
       end
       namespace :items do
         get "find_all", to: "search#index"
