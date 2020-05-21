@@ -24,7 +24,7 @@ describe "Items API" do
     item_3 = create(:item, name: "Catwoman", description: "Hit bad guys", unit_price: 17.15, merchant: merchant_1 )
     item_4 = create(:item, name: "Penguin", description: "Waddle around", unit_price: 8.00, merchant: create(:merchant))
 
-    get '/api/v1/items/find?name=bat'
+    get '/api/v1/items/find?name=bAT'
     item = JSON.parse(response.body)
     expect(item["data"]["attributes"]["name"].downcase).to include("bat")
   end
@@ -36,7 +36,7 @@ describe "Items API" do
     item_3 = create(:item, name: "Catwoman", description: "Hit bad guys", unit_price: 17.15, merchant: merchant_1 )
     item_4 = create(:item, name: "Penguin", description: "Waddle around", unit_price: 8.00, merchant: create(:merchant))
 
-    get '/api/v1/items/find?description=run'
+    get '/api/v1/items/find?description=RUN'
     item = JSON.parse(response.body)
     expect(item["data"]["attributes"]["name"]).to eq("Batmobile")
     expect(item["data"]["attributes"]["description"]).to eq("Run into buildings")
