@@ -18,7 +18,7 @@ Use the instructions below in combination with your terminal in order to learn m
     ```rails db:{create,migrate}```
 
   4. Seed the database:
-    ```rake db:seed:from_csv
+    ```rake db:seed:from_csv```
 
   5. Clone and set up Rails Driver:
     ```https://github.com/turingschool-examples/rails_driver```
