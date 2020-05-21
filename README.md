@@ -15,21 +15,24 @@ Use the instructions below in combination with your terminal in order to learn m
     ```bundle update```
 
   3. Initialize the database:
-    ```rails db:{create,migrate,seed}```
+    ```rails db:{create,migrate}```
 
-  4. Clone and set up Rails Driver:
-    ```https://github.com/turingschool-examples/rails_driver```  
+  4. Seed the database:
+    ```rake db:seed:from_csv
 
-  5. Make a connection to Rails Engine with the Rails server:
+  5. Clone and set up Rails Driver:
+    ```https://github.com/turingschool-examples/rails_driver```
+
+  6. Make a connection to Rails Engine with the Rails server:
     ```rails s```
 
-  6. Make a connection to Rails Driver with the Rails server:  
+  7. Make a connection to Rails Driver with the Rails server:  
     ```rails s -p 3001```
 
-  7. Visit your browser, and enter the following into the search bar:
+  8. Visit your browser, and enter the following into the search bar:
   ```localhost:3001```
 
-  8. Enjoy!
+  9. Enjoy!
 
 ## Skills Gained from this Project
 
